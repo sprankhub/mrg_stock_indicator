@@ -6,7 +6,7 @@
 # =============================================================================
 NAME = 'symmetrics_module_stock_indicator'
 
-TAGS = ()
+TAGS = ('magento', 'symmetrics', 'module', 'stock', 'indicator')
 
 LICENSE = 'AFL 3.0'
 
@@ -19,29 +19,28 @@ INSTALL_PATH = ''
 # responsibilities
 # =============================================================================
 TEAM_LEADER = {
-    '[firstname] [lastname]': '[email]'
+    'Sergej Braznikov': 'sb@symmetrics.de'
 }
 
 MAINTAINER = {
-    '[firstname] [lastname]': '[email]'
+    'Andreas Timm': 'at@symmetrics.de'
 }
 
 AUTHORS = {
-    '[firstname] [lastname]': '[email]',
+    'Andreas Timm': 'at@symmetrics.de'
 }
 
 # =============================================================================
 # additional infos
 # =============================================================================
-INFO = '[short description, max 60 chars]'
+INFO = 'Ampel für Lagerbestand'
 
 SUMMARY = '''
-    [long description
-    with multiple lines]
+    Zeigt 3-farbiger Ampel. Die Einstellungen dafür findet man unter
+    Admin Panel/System/Configuration/Inventory/Stock Indicator.
 '''
 
 NOTES = '''
-    [special notes, restrictions, bugs etc.]
 '''
 
 # =============================================================================
@@ -54,12 +53,10 @@ EXCLUDES = {
 }
 
 DEPENDS_ON_FILES = (
-    'app/code/core/.../1.php',
-    'app/code/core/.../2.php',
-    'app/code/core/.../3.php',
 )
 
 PEAR_KEY = ''
 
 COMPATIBLE_WITH = {
+    'magento': '1.3.0'
 }
