@@ -53,6 +53,7 @@ EXCLUDES = {
 }
 
 DEPENDS_ON_FILES = (
+    'app/code/core/Mage/Catalog/Block/Product/View.php'
 )
 
 PEAR_KEY = ''
