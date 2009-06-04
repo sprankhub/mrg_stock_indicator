@@ -6,7 +6,7 @@
 # =============================================================================
 NAME = 'symmetrics_module_stock_indicator'
 
-TAGS = ('magento', 'symmetrics', 'module', 'stock', 'indicator', 'locpack')
+TAGS = ('magento', 'symmetrics', 'module', 'stock', 'indicator', 'germanconfig', 'locpack')
 
 LICENSE = 'AFL 3.0'
 
