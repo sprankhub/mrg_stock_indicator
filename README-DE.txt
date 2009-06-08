@@ -2,7 +2,7 @@
 Installation
 ----------------------------------------------------
 
-1. Ordner app/ in Projekt-Root kopieren.
+1. Ordner app/ in den Projekt-Root kopieren
 
 3. Cache löschen
 
@@ -14,22 +14,23 @@ Installation
 Beschreibung
 ----------------------------------------------------
 
-Symmetrics_StockIndicator ist einer Art Ampel für Lagerbestand.
-
+Symmetrics_StockIndicator zeigt den Lagerbestand der
+Ware als ist eine Art Ampel an.
 
 Features:
 
-- Zeigt 3-farbiger Ampel
-- Anzahl die Wahre für jede Farbe einzeln konfiguriert werden.
+- Zeigt den Lagerbestand als einen 3-farbigen Ampel an
+- Für jede Farbe können Bereiche aus der Anzahl der Produkte
+konfiguriert werden
 
 ----------------------------------------------------
 Funktonalität und Besonderheiten
 ----------------------------------------------------
 
-Admin System > Configuration > Inventory > Stock Indicator.
+Admin System > Configuration > Inventory > Stock Indicator
 
 ----------------------------------------------------
 Probleme
 ----------------------------------------------------
 
-Keine.
+Keine bekannt.
