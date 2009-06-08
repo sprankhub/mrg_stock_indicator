@@ -2,7 +2,7 @@
 Installation
 ----------------------------------------------------
 
-1. Ordner app/ in den Projekt-Root kopieren
+1. Ordner app/ und skin/ in den Projekt-Root kopieren
 
 3. Cache löschen
 
