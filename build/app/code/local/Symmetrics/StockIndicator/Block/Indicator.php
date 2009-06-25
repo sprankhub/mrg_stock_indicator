@@ -8,7 +8,7 @@
  */
 class Symmetrics_StockIndicator_Block_Indicator extends Mage_Catalog_Block_Product_View
 {
-    public function getAviabilityClass()
+    public function getAvailabilityClass()
     {
         if (Mage::getStoreConfig('cataloginventory/stock_indicator/indicator_show') == 1) {
             $qty = $this->getProduct()->getData('stock_item')->getData('qty');
