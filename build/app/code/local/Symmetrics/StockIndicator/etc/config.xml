@@ -20,6 +20,11 @@
                 <class>Symmetrics_StockIndicator_Block</class>
             </stockindicator>
 		</blocks>
+		<models>
+            <stockindicator>
+                <class>Symmetrics_StockIndicator_Model</class>
+            </stockindicator>
+		</models>
         <resources>
             <stockindicator_setup>
                 <setup>

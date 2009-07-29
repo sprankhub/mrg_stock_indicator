@@ -8,10 +8,19 @@
  */
 class Symmetrics_StockIndicator_Block_Indicator extends Mage_Catalog_Block_Product_View
 {
+	
+	protected $productId;
+	
     public function getAvailabilityClass()
     {
         if (Mage::getStoreConfig('cataloginventory/stock_indicator/indicator_show') == 1) {
-            $qty = $this->getProduct()->getData('stock_item')->getData('qty');
+            if(!isset($this->productId)) {
+            	$product = $this->getProduct();
+            }
+            else {
+            	$product = Mage::getModel('catalog/product')->load($this->productId);
+            }
+            $qty = $product->getData('stock_item')->getData('qty');
             $config = Mage::getStoreConfig('cataloginventory/stock_indicator');
             $aviability_class = 'red';
             $keys = array('red', 'yellow', 'green');
@@ -25,5 +34,10 @@ class Symmetrics_StockIndicator_Block_Indicator extends Mage_Catalog_Block_Produ
             $aviability_class = false;
         }
         return $aviability_class;
+    }
+    
+    function setProductIdAvail($productId)
+    {
+    	$this->productId = $productId;
     }
 }
