@@ -8,7 +8,6 @@
  */
 class Symmetrics_StockIndicator_Block_Indicator extends Mage_Catalog_Block_Product_View
 {
-	
 	protected $productId;
 	
     public function getAvailabilityClass()

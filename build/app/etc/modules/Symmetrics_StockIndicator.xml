@@ -4,7 +4,6 @@
         <Symmetrics_StockIndicator>
             <codePool>local</codePool>
             <active>true</active>
-            <version>0.1.1</version>
         </Symmetrics_StockIndicator>
     </modules>
 </config> 
