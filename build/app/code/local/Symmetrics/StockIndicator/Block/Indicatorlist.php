@@ -6,7 +6,6 @@
  * @copyright symmetrics gmbh
  * @license http://opensource.org/licenses/osl-3.0.php  Open Software 
  */
-require_once('app/code/local/Symmetrics/StockIndicator/Block/StaticIndicator.php');
 /*
  * This class extends the Block class for product listing and calls the static class to get the Trafficlight color
  */
@@ -14,14 +13,14 @@ class Symmetrics_StockIndicator_Block_Indicatorlist extends Mage_Catalog_Block_P
 {
 	
 	protected $productId;
-	
+
     public function getAvailabilityClass()
     {
     	if(!isset($this->productId)) {
-    		return StaticIndicator::getColor($this->getProduct());
+    		return Symmetrics_StockIndicator_Block_StaticIndicator::getColor($this->getProduct());
         }
         else {
-    		return StaticIndicator::getColor($this->productId);
+    		return Symmetrics_StockIndicator_Block_StaticIndicator::getColor($this->productId);
         }
     }
     

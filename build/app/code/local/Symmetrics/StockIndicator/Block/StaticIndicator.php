@@ -10,7 +10,7 @@
 /*
  * This class returns the traffic light color depending on the availability
  */
-class StaticIndicator
+class Symmetrics_StockIndicator_Block_StaticIndicator
 {
 	public static function getColor($productId)
     {
