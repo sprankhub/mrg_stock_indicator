@@ -2,7 +2,7 @@
 /**
  * @category Symmetrics
  * @package Symmetrics_StockIndicator
- * @author symmetrics gmbh <info@symmetrics.de>, Andreas Timm <at@symmetrics.de>
+ * @author symmetrics gmbh <info@symmetrics.de>, Andreas Timm <at@symmetrics.de>, Eric Reiche <er@symmetrics.de>
  * @copyright symmetrics gmbh
  * @license http://opensource.org/licenses/osl-3.0.php  Open Software 
  */
