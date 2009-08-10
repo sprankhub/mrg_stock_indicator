@@ -6,33 +6,23 @@
  * @copyright symmetrics gmbh
  * @license http://opensource.org/licenses/osl-3.0.php  Open Software 
  */
+require_once('app/code/local/Symmetrics/StockIndicator/Block/StaticIndicator.php');
+/*
+ * This class extends the Block class for product listing and calls the static class to get the Trafficlight color
+ */
 class Symmetrics_StockIndicator_Block_Indicatorlist extends Mage_Catalog_Block_Product_List
 {
+	
 	protected $productId;
 	
     public function getAvailabilityClass()
     {
-        if (Mage::getStoreConfig('cataloginventory/stock_indicator/indicator_show') == 1) {
-            if(!isset($this->productId)) {
-            	$product = $this->getProduct();
-            }
-            else {
-            	$product = Mage::getModel('catalog/product')->load($this->productId);
-            }
-            $qty = $product->getData('stock_item')->getData('qty');
-            $config = Mage::getStoreConfig('cataloginventory/stock_indicator');
-            $aviability_class = 'red';
-            $keys = array('red', 'yellow', 'green');
-            foreach ($keys as $key) {
-                if ($qty >= $config[$key]) {
-                    $aviability_class = $key;
-                }
-            }
+    	if(!isset($this->productId)) {
+    		return StaticIndicator::getColor($this->getProduct());
         }
         else {
-            $aviability_class = false;
+    		return StaticIndicator::getColor($this->productId);
         }
-        return $aviability_class;
     }
     
     function setProductIdAvail($productId)
