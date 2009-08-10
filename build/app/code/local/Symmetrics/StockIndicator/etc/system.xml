@@ -10,7 +10,7 @@
 -->
 <config>
     <sections>
-        <cataloginventory translate="label" module="cataloginventory">
+        <cataloginventory translate="label" module="stockindicator">
             <groups>
                 <stock_indicator translate="label comment">
                     <label>Stock Indicator</label>

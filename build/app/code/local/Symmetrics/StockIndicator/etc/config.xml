@@ -55,4 +55,15 @@
             </updates>
         </layout>
     </frontend>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Symmetrics_StockIndicator>
+                    <files>
+                        <default>Symmetrics_StockIndicator.csv</default>
+                    </files>
+                </Symmetrics_StockIndicator>
+            </modules>
+        </translate>
+    </adminhtml>
 </config>
