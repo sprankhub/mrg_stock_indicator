@@ -46,11 +46,11 @@ NOTES = '''
 # =============================================================================
 # relations
 # =============================================================================
-REQUIRES = {
-}
+REQUIRES = [
+    {'magento': '*', 'magento_enterprise': '*'}, 
+]
 
-EXCLUDES = {
-}
+EXCLUDES = {}
 
 DEPENDS_ON_FILES = (
     'app/code/core/Mage/Catalog/Block/Product/View.php'
@@ -61,4 +61,5 @@ PEAR_KEY = ''
 
 COMPATIBLE_WITH = {
     'magento': ['1.3.2.1', '1.3.2.3', '1.3.2.4'],
+    'magento_enterprise': ['1.3.2.1', '1.3.2.3', '1.3.2.4'],
 }
