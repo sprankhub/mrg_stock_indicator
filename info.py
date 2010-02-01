@@ -36,7 +36,7 @@ AUTHORS = {
 INFO = 'Ampel für Lagerbestand'
 
 SUMMARY = '''
-    Zeigt 3-farbiger Ampel. Die Einstellungen dafür findet man unter
+    Zeigt 3-farbige Ampel. Die Einstellungen dafür findet man unter
     Admin Panel/System/Configuration/Inventory/Stock Indicator.
 '''
 
