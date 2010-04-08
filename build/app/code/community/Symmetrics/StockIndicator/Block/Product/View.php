@@ -1,4 +1,4 @@
-<!--
+<?php
 /**
  * Magento
  *
@@ -23,7 +23,7 @@
  */
 
 /**
- * Block template
+ * StockIndicator product view
  *
  * @category  Symmetrics
  * @package   Symmetrics_StockIndicator
@@ -34,10 +34,18 @@
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
  */
--->
-<?php if ($this->isEnabled()) : ?>
-    <div class="stock-indicator-wrapper">
-        <<?php echo $this->getHtmlTag()?> id="product-<?php echo $this->getId() ?>" class="<?php echo $this->getCssClass() ?>" title="<?php echo $this->getStateTitle() ?>"> &nbsp; </<?php echo $this->getHtmlTag()?>>
-        <input id="product-id" type="hidden" value="<?php echo $this->getId() ?>">
-    </div>
-<?php endif ?>
+class Symmetrics_StockIndicator_Block_Product_View extends Symmetrics_StockIndicator_Block_Abstract
+{
+    /**
+     * Initialize the indicator here
+     *
+     * @return void
+     */
+    protected function __prepareLayout()
+    {
+        $this->setAlignment('horizontal');
+
+        // $this->init() is here also possible, instead of parent's _prepareLayout()
+        parent::_prepareLayout();
+    }
+}

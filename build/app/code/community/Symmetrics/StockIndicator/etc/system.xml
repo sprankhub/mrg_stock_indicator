@@ -1,11 +1,25 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 /**
- * @category Symmetrics
- * @package Symmetrics_StockIndicator
- * @author symmetrics gmbh <info@symmetrics.de>, Andreas Timm <at@symmetrics.de>
- * @copyright symmetrics gmbh
- * @license http://opensource.org/licenses/osl-3.0.php  Open Software 
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category  Symmetrics
+ * @package   Symmetrics_StockIndicator
+ * @author    symmetrics gmbh <info@symmetrics.de>
+ * @author    Andreas Timm <at@symmetrics.de>
+ * @author    Ngoc Anh Doan <nd@symmetrics.de>
+ * @copyright 2010 Symmetrics GmbH
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software
  */
 -->
 <config>
@@ -20,19 +34,20 @@
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
                     <fields>
-                        <indicator_show translate="label">
-                            <label><![CDATA[Show stock indicator<br/><br/><strong>Availability:</strong>]]></label>
+                        <product_view_enabled translate="label">
+                            <label><![CDATA[Enable stock indicator on product view<br/><br/><strong>Quantities:</strong>]]></label>
+                            <comment><![CDATA[Indicator will be displayed on product detail sites.]]></comment>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                             <sort_order>0</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                        </indicator_show>
+                        </product_view_enabled>
                        <red translate="label">
                             <label>Red ≤</label>
                             <frontend_type>text</frontend_type>
-                            <sort_order>1</sort_order>
+                            <sort_order>2</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
@@ -40,7 +55,7 @@
                        <yellow translate="label">
                             <label>Yellow ≤</label>
                             <frontend_type>text</frontend_type>
-                            <sort_order>2</sort_order>
+                            <sort_order>3</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
@@ -48,7 +63,7 @@
                        <green translate="label">
                             <label>Green ≤</label>
                             <frontend_type>text</frontend_type>
-                            <sort_order>3</sort_order>
+                            <sort_order>4</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>

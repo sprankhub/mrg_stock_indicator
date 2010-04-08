@@ -1,15 +1,41 @@
 <?php
 /**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category  Symmetrics
+ * @package   Symmetrics_StockIndicator
+ * @author    Symmetrics GmbH <info@symmetrics.de>
+ * @author    Andreas Timm <at@symmetrics.de>
+ * @author    Ngoc Anh Doan <nd@symmetrics.de>
+ * @copyright 2010 Symmetrics GmbH
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @link      http://www.symmetrics.de/
+ */
+
+/**
  * StockIndicator database migration
  *
- * @category Symmetrics
- * @package Symmetrics_StockIndicator
- * @author symmetrics gmbh <info@symmetrics.de>, Andreas Timm <at@symmetrics.de>
+ * @category  Symmetrics
+ * @package   Symmetrics_StockIndicator
+ * @author    Symmetrics GmbH <info@symmetrics.de>
+ * @author    Andreas Timm <at@symmetrics.de>
+ * @author    Ngoc Anh Doan <nd@symmetrics.de>
  * @copyright symmetrics gmbh
  * @license http://opensource.org/licenses/osl-3.0.php  Open Software 
  */
 $installer = $this;
-$installer->setConfigData('cataloginventory/stock_indicator/availability_0', '0');
-$installer->setConfigData('cataloginventory/stock_indicator/availability_1', '20');
-$installer->setConfigData('cataloginventory/stock_indicator/availability_2', '50');
-$installer->setConfigData('cataloginventory/stock_indicator/availability_3', '80');
+/* @var $installer Mage_Core_Model_Resource_Setup */
+
+$installer->setConfigData('cataloginventory/stock_indicator/red', '0');
+$installer->setConfigData('cataloginventory/stock_indicator/yellow', '20');
+$installer->setConfigData('cataloginventory/stock_indicator/green', '40');
