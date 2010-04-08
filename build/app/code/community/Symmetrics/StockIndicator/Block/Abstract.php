@@ -273,10 +273,12 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
     public function getProductStock($product = null)
     {
         if (null !== $product) {
-            return (int) $product->getStockItem()->getQty();
+            $stockItem = $product->getStockItem();
+        } else {
+            $stockItem =  $this->getProduct()->getStockItem();
         }
-
-        return (int) $this->getProduct()->getStockItem()->getQty();
+        
+        return (int) $stockItem->getQty() - $stockItem->getMinQty();
     }
 
     /**
