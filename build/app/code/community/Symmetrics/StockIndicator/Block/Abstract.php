@@ -287,7 +287,6 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
      * @param string $tag css class(es)
      *
      * @return Symmetrics_StockIndicator_Block_Abstract
-     * @see Symmetrics_StockIndicator_Block_Abstract::_render()
      */
     public function setHtmlTag($tag)
     {
@@ -300,7 +299,6 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
      * @param string $class css class(es)
      *
      * @return Symmetrics_StockIndicator_Block_Abstract
-     * @see Symmetrics_StockIndicator_Block_Abstract::_render()
      */
     public function setCssClass($class)
     {
@@ -313,7 +311,6 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
      * @param string $state red|yellow|green
      *
      * @return Symmetrics_StockIndicator_Block_Abstract
-     * @see Symmetrics_StockIndicator_Block_Abstract::_render()
      */
     public function setProductState($state)
     {
@@ -326,7 +323,6 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
      * @param string $title HTML title
      *
      * @return Symmetrics_StockIndicator_Block_Abstract
-     * @see Symmetrics_StockIndicator_Block_Abstract::_render()
      */
     public function setStateTitle($title)
     {
@@ -369,7 +365,6 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
      * @param string $alignment css class: horizontal|vertical
      *
      * @return Symmetrics_StockIndicator_Block_Abstract
-     * @see Symmetrics_StockIndicator_Block_Abstract::_render()
      */
     public function setAlignment($alignment)
     {
