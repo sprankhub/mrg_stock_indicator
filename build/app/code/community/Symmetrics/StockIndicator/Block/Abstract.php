@@ -63,7 +63,7 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
      *
      * @var string
      */
-    protected $_viewEnabledConfigPath = 'cataloginventory/stock_indicator/product_view_enabled';
+    const STOCK_INDICATOR_CONFIG_VALUE_ENABLED = '/product_view_enabled';
 
     /**
      * The stock indicator is enabled for defined view.
@@ -161,7 +161,9 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
     public function isEnabled()
     {
         if ($this->_isEnabled === null) {
-            $this->_isEnabled = Mage::getStoreConfig($this->_viewEnabledConfigPath);
+            $this->_isEnabled = Mage::getStoreConfig(
+                self::STOCK_INDICATOR_CONFIG_PATH . self::STOCK_INDICATOR_CONFIG_VALUE_ENABLED
+            );
         }
 
         return $this->_isEnabled;
@@ -341,20 +343,6 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
     public function setOption($index, $value)
     {
         $this->_options[trim($index)] = trim($value);
-        return $this;
-    }
-
-    /**
-     * Inherited class have to define this config path
-     *
-     * @param string $pathString config path
-     *
-     * @return Symmetrics_StockIndicator_Block_Abstract
-     * @see Symmetrics_StockIndicator_Block_Abstract::_viewEnabledConfigPath
-     */
-    public function setViewEnabledConfigPath($pathString)
-    {
-        $this->_viewEnabledConfigPath = (string) trim($pathString);
         return $this;
     }
 
