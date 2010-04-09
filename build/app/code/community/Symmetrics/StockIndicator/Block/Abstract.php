@@ -48,7 +48,7 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
      *
      * @see Symmetrics_StockIndicator_Block_Abstract::setProductState()
      */
-    protected $_stockIndicatorConfigPath = 'cataloginventory/stock_indicator';
+    const STOCK_INDICATOR_CONFIG_PATH = 'cataloginventory/stock_indicator';
     
     /**
      * Default alignment of the 'Ampel' indicator. Used as css class to get it
@@ -120,9 +120,9 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
         }
 
         /**
-         * @see Symmetrics_StockIndicator_Block_Abstract::->_stockIndicatorConfigPath
+         * @see Symmetrics_StockIndicator_Block_Abstract::STOCK_INDICATOR_CONFIG_PATH
          */
-        $stockIndicatorConfig = Mage::getStoreConfig($this->_stockIndicatorConfigPath);
+        $stockIndicatorConfig = Mage::getStoreConfig(self::STOCK_INDICATOR_CONFIG_PATH);
         $stock = $this->getProductStock();
         // Array for the following foreach statement
         $states = array('red', 'yellow', 'green');
