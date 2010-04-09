@@ -37,7 +37,7 @@
 -->
 <?php if ($this->isEnabled()) : ?>
     <div class="stock-indicator-wrapper">
-        <<?php echo $this->getHtmlTag()?> id="product-<?php echo $this->getId() ?>" class="<?php echo $this->getCssClass() ?>" title="<?php echo $this->getStateTitle() ?>"> &nbsp; </<?php echo $this->getHtmlTag()?>>
-        <input id="product-id" type="hidden" value="<?php echo $this->getId() ?>">
+        <<?php echo $this->getHtmlTag()?> id="product-<?php echo $this->getProductId() ?>" class="<?php echo $this->getCssClass() ?>" title="<?php echo $this->getStateTitle() ?>"> &nbsp; </<?php echo $this->getHtmlTag()?>>
+        <input id="product-id" type="hidden" value="<?php echo $this->getProductId() ?>">
     </div>
 <?php endif ?>

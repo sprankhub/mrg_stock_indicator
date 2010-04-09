@@ -258,7 +258,7 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
      *
      * @return int  product ID
      */
-    public function getId()
+    public function getProductId()
     {
         return $this->getProduct()->getId();
     }
