@@ -17,7 +17,8 @@
  * @package   Symmetrics_StockIndicator
  * @author    symmetrics gmbh <info@symmetrics.de>
  * @author    Ngoc Anh Doan <nd@symmetrics.de>
- * @copyright 2010 Symmetrics GmbH
+ * @author    Yauhen Yakimovich <yy@symmetrics.de>
+ * @copyright 2010 symmetrics gmbh
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software
  */
 -->
@@ -29,7 +30,15 @@
     </default>
     <catalog_product_view>
         <reference name="alert.urls">
-            <block type="stockindicator/product_view" name="product.info.stockindicator" template="stockindicator/indicator.phtml" />
+            <block type="stockindicator/product_view" name="product.info.stockindicator" template="stockindicator/product/view/indicator.phtml" />
         </reference>
     </catalog_product_view>
+    <PRODUCT_TYPE_configurable translate="label" module="catalog">
+        <reference name="head">
+            <action method="addJs"><script>symmetrics/stockindicator/stock_indicator.js</script></action>
+        </reference>
+        <reference name="alert.urls">            
+            <block type="stockindicator/product_view_type_configurable" name="product.info.configurable.stockindicator" template="stockindicator/product/view/type/configurable.phtml" />
+        </reference>
+    </PRODUCT_TYPE_configurable>
 </layout>

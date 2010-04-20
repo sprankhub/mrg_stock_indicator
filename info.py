@@ -6,7 +6,7 @@
 # =============================================================================
 NAME = 'symmetrics_module_stock_indicator'
 
-TAGS = ('magento', 'symmetrics', 'module', 'stock', 'indicator', 'germanconfig', 'locpack')
+TAGS = ('magento', 'symmetrics', 'module', 'stock', 'indicator', 'mrg')
 
 LICENSE = 'AFL 3.0'
 
@@ -29,7 +29,8 @@ MAINTAINER = {
 AUTHORS = {
     'Andreas Timm': 'at@symmetrics.de',
     'Ngoc Anh Doan': 'nd@symmetrics.de',
-    'Torsten Walluhn': 'tw@symmetrics.de'
+    'Torsten Walluhn': 'tw@symmetrics.de',
+    'Yauhen Yakimovich': 'yy@symmetrics.de'
 }
 
 # =============================================================================
@@ -61,6 +62,6 @@ DEPENDS_ON_FILES = (
 PEAR_KEY = ''
 
 COMPATIBLE_WITH = {
-    'magento': ['1.3.2.1', '1.3.2.3', '1.3.2.4', '1.4.0.0', '1.4.0.1'],
-    'magento_enterprise': ['1.3.2.1', '1.3.2.3', '1.3.2.4', '1.7.0.0'],
+    'magento': ['1.4.0.0', '1.4.0.1'],
+    'magento_enterprise': ['1.7.0.0'],
 }

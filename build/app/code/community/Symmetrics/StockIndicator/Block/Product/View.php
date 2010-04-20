@@ -14,10 +14,10 @@
  *
  * @category  Symmetrics
  * @package   Symmetrics_StockIndicator
- * @author    Symmetrics GmbH <info@symmetrics.de>
+ * @author    symmetrics gmbh <info@symmetrics.de>
  * @author    Andreas Timm <at@symmetrics.de>
  * @author    Ngoc Anh Doan <nd@symmetrics.de>
- * @copyright 2010 Symmetrics GmbH
+ * @copyright 2010 symmetrics gmbh
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
  */
@@ -27,10 +27,10 @@
  *
  * @category  Symmetrics
  * @package   Symmetrics_StockIndicator
- * @author    Symmetrics GmbH <info@symmetrics.de>
+ * @author    symmetrics gmbh <info@symmetrics.de>
  * @author    Andreas Timm <at@symmetrics.de>
  * @author    Ngoc Anh Doan <nd@symmetrics.de>
- * @copyright 2010 Symmetrics GmbH
+ * @copyright 2010 symmetrics gmbh
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
  */

@@ -18,7 +18,8 @@
  * @author    symmetrics gmbh <info@symmetrics.de>
  * @author    Andreas Timm <at@symmetrics.de>
  * @author    Ngoc Anh Doan <nd@symmetrics.de>
- * @copyright 2010 Symmetrics GmbH
+ * @author    Yauhen Yakimovich <yy@symmetrics.de>
+ * @copyright 2010 symmetrics gmbh
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software
  */
 -->
@@ -36,7 +37,7 @@
                     <fields>
                         <product_view_enabled translate="label">
                             <label><![CDATA[Enable stock indicator on product view<br/><br/><strong>Quantities:</strong>]]></label>
-                            <comment><![CDATA[Indicator will be displayed on product detail sites.]]></comment>
+                            <comment><![CDATA[Indicator will be displayed on product detail pages.]]></comment>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                             <sort_order>0</sort_order>
@@ -44,30 +45,30 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </product_view_enabled>
-                       <red translate="label">
+                        <red translate="label">
                             <label>Red ≤</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>2</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                       </red>
-                       <yellow translate="label">
+                        </red>
+                        <yellow translate="label">
                             <label>Yellow ≤</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>3</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                       </yellow>
-                       <green translate="label">
+                        </yellow>
+                        <green translate="label">
                             <label>Green ≤</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>4</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                       </green>
+                        </green>
                     </fields>
                 </stock_indicator>
             </groups>

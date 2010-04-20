@@ -14,10 +14,11 @@
  *
  * @category  Symmetrics
  * @package   Symmetrics_StockIndicator
- * @author    Symmetrics GmbH <info@symmetrics.de>
+ * @author    symmetrics gmbh <info@symmetrics.de>
  * @author    Andreas Timm <at@symmetrics.de>
  * @author    Ngoc Anh Doan <nd@symmetrics.de>
- * @copyright 2010 Symmetrics GmbH
+ * @author    Yauhen Yakimovich <yy@symmetrics.de>
+ * @copyright 2010 symmetrics gmbh
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
  */
@@ -27,29 +28,16 @@
  *
  * @category  Symmetrics
  * @package   Symmetrics_StockIndicator
- * @author    Symmetrics GmbH <info@symmetrics.de>
+ * @author    symmetrics gmbh <info@symmetrics.de>
  * @author    Andreas Timm <at@symmetrics.de>
  * @author    Ngoc Anh Doan <nd@symmetrics.de>
- * @copyright 2010 Symmetrics GmbH
+ * @author    Yauhen Yakimovich <yy@symmetrics.de>
+ * @copyright 2010 symmetrics gmbh
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
  */
 abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Block_Product_Abstract
 {
-    /**
-     * This configuration path has currently 3 key => value pairs and presents the state
-     * of a product:
-     *
-     * - red
-     * - yellow
-     * - green
-     *
-     * Values (stock/quantity) defines when which state gets assign to a product
-     *
-     * @see Symmetrics_StockIndicator_Block_Abstract::setProductState()
-     */
-    const STOCK_INDICATOR_CONFIG_PATH = 'cataloginventory/stock_indicator';
-    
     /**
      * Default alignment of the 'Ampel' indicator. Used as css class to get it
      * horizontal of vertical
@@ -57,23 +45,6 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
      * @var string  horizontal | vertical
      */
     protected $_alignment = 'horizontal';
-
-    /**
-     * The configuration path, to check whether the
-     *
-     * @var string
-     */
-    const STOCK_INDICATOR_CONFIG_VALUE_ENABLED = '/product_view_enabled';
-
-    /**
-     * The stock indicator is enabled for defined view.
-     * This is setted in the backend.
-     *
-     * @see $_viewEnabledConfigPath
-     *
-     * @var 0|1
-     */
-    protected $_isEnabled = null;
 
     /**
      * Options and data for the indicator:
@@ -109,40 +80,42 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
     /**
      * Initialize:
      *
-     * Sets some default options and checks if this module ist enabled
+     * Sets some default options and checks if this module is enabled
      *
      * @return void
      */
     public function init()
     {
-        if (!$this->isEnabled()) {
+        /* @var Symmetrics_StockIndicator_Model_Config $stockIndicatorModelConfig */
+        $stockIndicatorModelConfig = Mage::getSingleton('stockindicator/config');
+
+        // check if enabled
+        $isStockIndicatorEnabled = $stockIndicatorModelConfig->isEnabled();
+        if (!$isStockIndicatorEnabled) {
             return;
         }
 
-        /**
-         * @see Symmetrics_StockIndicator_Block_Abstract::STOCK_INDICATOR_CONFIG_PATH
-         */
-        $stockIndicatorConfig = Mage::getStoreConfig(self::STOCK_INDICATOR_CONFIG_PATH);
-        $stock = $this->getProductStock();
         // Array for the following foreach statement
         $states = array('red', 'yellow', 'green');
+        
+        $configQuantities = $stockIndicatorModelConfig->getConfig();
+        $productQuantity = $this->getProductStockQuantity();
+        
 
         // Sets state and HTML title attribute of product
+        // based on quantity matching against configuration values
         foreach ($states as $state) {
-            if ($stock >= $stockIndicatorConfig[$state]) {
+            if ($productQuantity >= $configQuantities[$state]) {
                 $this->setProductState($state);
-
                 switch ($state) {
                     case 'red':
                         $this->setStateTitle($this->__('Currently out of stock!'));
                         break;
                     case 'yellow':
-                        $this->setStateTitle($this->__('Moderate stock!'));
+                        $this->setStateTitle($this->__('Only a few available!'));
                         break;
                     case 'green':
                         $this->setStateTitle($this->__('In stock'));
-                        break;
-                    default:
                         break;
                 }
             }
@@ -150,23 +123,6 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
 
         // Default css classes
         $this->addCssClass('stock-indicator ' . $this->getAlignment() . ' ' . $this->getProductState());
-    }
-
-    /**
-     * Indicator is enabled or not
-     *
-     * @see $_isEnabled
-     * @return bool 1|0
-     */
-    public function isEnabled()
-    {
-        if ($this->_isEnabled === null) {
-            $this->_isEnabled = Mage::getStoreConfig(
-                self::STOCK_INDICATOR_CONFIG_PATH . self::STOCK_INDICATOR_CONFIG_VALUE_ENABLED
-            );
-        }
-
-        return $this->_isEnabled;
     }
 
     /**
@@ -266,20 +222,20 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
     }
 
     /**
-     * Gets current stock of product
+     * Gets current stock of the product
      *
      * @param Mage_Catalog_Model_Product $product specific product
      *
      * @return int  stock/quantity
      */
-    public function getProductStock($product = null)
+    public function getProductStockQuantity($product = null)
     {
         if (null !== $product) {
             $stockItem = $product->getStockItem();
         } else {
             $stockItem =  $this->getProduct()->getStockItem();
         }
-        
+
         return (int) $stockItem->getQty() - $stockItem->getMinQty();
     }
 
