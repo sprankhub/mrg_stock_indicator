@@ -56,15 +56,7 @@ Status des Indikators.
 
 * TESTCASES
 ** BASIC
-*** A: Nach abspeichern der Mengenwerte, sollten die Werte gesetzt sein und nicht
-die ursprünglichen Werte haben.
-Ggf. kann mit einer SQL-Abfrage gegengeprüft werden:
-----
-SELECT *
-FROM `core_config_data`
-WHERE (`path` LIKE 'cataloginventory/stock_indicator%')
-----
-Das Ergebnis enthält die im Back-End gesetzten Werte.
+*** A: Prüfen Sie, ob die eingebenen Werte im Backend gespeichert werden.
 
 *** B: Gehen Sie im Frontend auf eine Produktdetails Seite, unterhalb der Produkt-
 bewertung sollte jetzt eine einfarbige 'Ampel' erscheinen. Um die Status 'rot' und

@@ -255,7 +255,7 @@ Symmetrics.Product.StockIndicatorConfig.prototype = {
         if (dropdown.options[index].config == undefined) {
             return $A(); // empty list
         }
-        var productIds = dropdown.options[index].config.products;
+        var productIds = dropdown.options[index].config.allowedProducts;
 
         return productIds;
     },
