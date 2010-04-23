@@ -51,9 +51,14 @@ if (Mage::helper('stockindicator')->isStockIndicatorEnabled()) : ?>
         var greenConfig = {
             quantity: '<? echo $this->getGreenConfigQuantity() ?>',
             title: '<? echo $this->__('In stock') ?>'
-        }
+        }        
+        <?php if ($this->isProductInStock()):?>
+        var isProductInStock = true;
+        <?php else:?>
+        var isProductInStock = false;
+        <?php endif ?>
         var stockindicator = new Symmetrics.Product.StockIndicatorConfig(
-            window.spConfig, productQuantities,
+            isProductInStock, window.spConfig, productQuantities,
             redConfig, yellowConfig, greenConfig
         );
         window.stockindicator = stockindicator;

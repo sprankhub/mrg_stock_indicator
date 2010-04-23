@@ -39,6 +39,21 @@
 abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Block_Product_Abstract
 {
     /**
+     * @const string RED_STATE red state
+     */
+    const RED_STATE = 'red';
+
+    /**
+     * @const string YELLOW_STATE yellow state
+     */
+    const YELLOW_STATE = 'yellow';
+
+    /**
+     * @const string GREEN_STATE green state
+     */
+    const GREEN_STATE = 'green';
+
+    /**
      * Default alignment of the 'Ampel' indicator. Used as css class to get it
      * horizontal of vertical
      *
@@ -95,12 +110,35 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
             return;
         }
 
+        if ($this->isProductInStock()) {
+            $this->setIsProductInStock(true);
+            $this->_initProductStateByQuantity();
+        } else {
+            $this->setIsProductInStock(false);
+            // set RED state
+            $this->setProductState(self::RED_STATE);
+            $this->setStateTitle($this->__('Currently out of stock!'));
+        }        
+
+        // Default css classes
+        $this->addCssClass('stock-indicator ' . $this->getAlignment() . ' ' . $this->getProductState());
+    }
+
+    /**
+     * Initialize product state by quantity
+     *
+     * @return void
+     */
+    private function _initProductStateByQuantity()
+    {
+        /* @var Symmetrics_StockIndicator_Model_Config $stockIndicatorModelConfig */
+        $stockIndicatorModelConfig = Mage::getSingleton('stockindicator/config');
+
         // Array for the following foreach statement
-        $states = array('red', 'yellow', 'green');
-        
+        $states = array(self::RED_STATE, self::YELLOW_STATE, self::GREEN_STATE);
+
         $configQuantities = $stockIndicatorModelConfig->getConfig();
         $productQuantity = $this->getProductStockQuantity();
-        
 
         // Sets state and HTML title attribute of product
         // based on quantity matching against configuration values
@@ -108,21 +146,18 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
             if ($productQuantity >= $configQuantities[$state]) {
                 $this->setProductState($state);
                 switch ($state) {
-                    case 'red':
+                    case self::RED_STATE:
                         $this->setStateTitle($this->__('Currently out of stock!'));
                         break;
-                    case 'yellow':
+                    case self::YELLOW_STATE:
                         $this->setStateTitle($this->__('Only a few available!'));
                         break;
-                    case 'green':
+                    case self::GREEN_STATE:
                         $this->setStateTitle($this->__('In stock'));
                         break;
                 }
             }
         }
-
-        // Default css classes
-        $this->addCssClass('stock-indicator ' . $this->getAlignment() . ' ' . $this->getProductState());
     }
 
     /**
@@ -219,6 +254,25 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
     public function getProductId()
     {
         return $this->getProduct()->getId();
+    }
+
+    /**
+     * Test stock availability
+     *
+     * @param Mage_Catalog_Model_Product $product specific product
+     *
+     * @return boolean true if product is in stock
+     */
+    public function isProductInStock($product = null)
+    {
+        if (null !== $product) {
+            $stockItem = $product->getStockItem();
+        } else {
+            $stockItem =  $this->getProduct()->getStockItem();
+        }
+        $isInStock = $stockItem->getIsInStock();
+
+        return (boolean) $isInStock;
     }
 
     /**

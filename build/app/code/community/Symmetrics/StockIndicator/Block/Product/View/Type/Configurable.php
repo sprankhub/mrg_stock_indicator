@@ -110,6 +110,25 @@ class Symmetrics_StockIndicator_Block_Product_View_Type_Configurable extends Mag
     }
 
     /**
+     * Test stock availability
+     *
+     * @param Mage_Catalog_Model_Product $product specific product
+     *
+     * @return boolean true if product is in stock
+     */
+    public function isProductInStock($product = null)
+    {
+        if (null !== $product) {
+            $stockItem = $product->getStockItem();
+        } else {
+            $stockItem =  $this->getProduct()->getStockItem();
+        }
+        $isInStock = $stockItem->getIsInStock();
+
+        return (boolean) $isInStock;
+    }
+
+    /**
      * Get allowed products
      *
      * @return collection of saleable associated products

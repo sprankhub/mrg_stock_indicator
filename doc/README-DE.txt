@@ -21,7 +21,7 @@ Einstellmöglichkeiten vor:
 eine einfarbige 'Ampel', die die Verfügbarkeit des Produkts signalisiert.
 *** C: Unterstützung für Configurable Products 
 
-** TECHNINCAL
+** TECHNICAL
 *** In der Layout Datei (stockindicator.xml) wird der 'alert.urls' Block von
 <catalog_product_view> referenziert und der 'Ampel'-Indikator eingefügt.
 Symmetrics_StockIndicator_Block_Abstract erbt von Mage_Catalog_Block_Product_Abstract.

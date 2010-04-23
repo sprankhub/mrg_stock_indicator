@@ -57,9 +57,10 @@ Symmetrics.Product.StockIndicatorConfig.prototype = {
     /**
      * Constructor
      */
-    initialize: function(spConfig, productQuantities,
+    initialize: function(isProductInStock, spConfig, productQuantities,
         redConfig, yellowConfig, greenConfig){
         this.indicator = null;
+        this.isProductInStock = isProductInStock;
         this.spConfig = spConfig;
         /* @var productQuantities array of simple product quantites associated
          *                        with current configurable for which stock
@@ -78,10 +79,13 @@ Symmetrics.Product.StockIndicatorConfig.prototype = {
         this.configTitles[this.GREEN_STATE] = greenConfig.title;
         /* @var currentState current state value after latest update  */
         this.currentState = null;
-        var fullQuantity = this.getAllProductsQuantity();
-        this.updateIndicatorStateByQuantity(fullQuantity);
+        this.setRedState();
 
-        this.observeOptionDropdowns();
+        if (this.isProductInStock) {
+            var fullQuantity = this.getAllProductsQuantity();
+            this.updateIndicatorStateByQuantity(fullQuantity);
+            this.observeOptionDropdowns();
+        }
     },
 
     /**
