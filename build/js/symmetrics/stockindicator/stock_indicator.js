@@ -109,6 +109,8 @@ Symmetrics.Product.StockIndicatorConfig.prototype = {
 
     /**
      * Update state of the indicator in the DOM
+     * 
+     * @param state string inidictor state
      *
      * @return Symmetrics.Product.StockIndicatorConfig
      */
@@ -185,8 +187,13 @@ Symmetrics.Product.StockIndicatorConfig.prototype = {
      * we have the simple product
      */
     observeOptionDropdowns: function(){
+        // check if there is anuthing to observe
+        if (this.spConfig === undefined || this.spConfig.settings === undefined) {
+            return;
+        }
+
         // observe each option dropdown
-        var optionDropdowns = spConfig.settings;
+        var optionDropdowns = this.spConfig.settings;
         optionDropdowns.each(function(dropdown){
             dropdown.observe('change', this.updateOnChange.bind(this));
         }.bind(this));
@@ -201,10 +208,77 @@ Symmetrics.Product.StockIndicatorConfig.prototype = {
         // take dropdown
         var dropdown = event.target;
 
+        if (this.isEmptyOptionSelected(dropdown)) {            
+            this.updateStateByParentQuantity(dropdown);
+            return;
+        }
+        
         // build a list of product ids
         var productIds = this.getSelectedProductIds(dropdown);
 
         // sum quantities of selected products
+        var quantity = this.sumProductsQuantity(productIds);
+
+        // update state
+        this.updateIndicatorStateByQuantity(quantity);
+    },
+
+    /**
+     * Tests if the selected option dropdown is empty
+     *
+     * @param dropdown DOM element
+     * 
+     * @return boolean true if so
+     */
+    isEmptyOptionSelected: function(dropdown){
+        var index = dropdown.options.selectedIndex;
+        if (!dropdown.options[index].value) {
+            return true;
+        }
+
+        return false;
+    },
+
+    /**
+     * Update indicator state by upper (parent) dropdown
+     *
+     * @param dropdown DOM element
+     */
+    updateStateByParentQuantity: function(dropdown) {
+        var optionDropdowns = this.spConfig.settings;
+        var quantity = 0;
+        // is first drop down?
+        if (dropdown == optionDropdowns.first()) {            
+            quantity = this.getAllProductsQuantity();
+        } else {            
+            // find parent
+            var parentDropdown = null;
+            var dropdowns = optionDropdowns.toArray();
+            var index=0, len=dropdowns.length;
+            for (; index < len && dropdowns[index] != dropdown; index++) {
+                if (this.isEmptyOptionSelected(dropdowns[index])) {
+                    break;
+                }
+                parentDropdown = dropdowns[index];
+            }            
+            // build a list of product ids
+            var productIds = this.getSelectedProductIds(parentDropdown);
+
+            // sum quantities of selected products
+            quantity = this.sumProductsQuantity(productIds);
+        }
+
+        this.updateIndicatorStateByQuantity(quantity);
+    },
+
+    /**
+     * Sum product quantities by product ids
+     *
+     * @param productIds Array of product ids
+     *
+     * @return int quantity sum
+     */
+    sumProductsQuantity: function(productIds){
         var quantity = 0;
         var quantities = productIds.collect(function(productId){
             return this.getProductQuantity(productId);
@@ -213,8 +287,29 @@ Symmetrics.Product.StockIndicatorConfig.prototype = {
             quantity += quantities[index];
         }
 
-        // update state
-        this.updateIndicatorStateByQuantity(quantity);
+        return quantity;
+    },
+
+    /**
+     * Get selected product ids from dropdown
+     *
+     * @param dropdown DOM element
+     *
+     * @return array of product ids
+     */
+    getSelectedProductIds: function(dropdown){
+        var index = dropdown.options.selectedIndex;
+        if (dropdown.options[index].config == undefined) {
+            return $A(); // empty list
+        }
+        var productIds = $A();
+        if (dropdown.options[index].config.allowedProducts === undefined) {
+            productIds = dropdown.options[index].config.products;
+        } else {
+            productIds = dropdown.options[index].config.allowedProducts;
+        }
+
+        return productIds;
     },
 
     /**
@@ -243,21 +338,6 @@ Symmetrics.Product.StockIndicatorConfig.prototype = {
                 this.updateIndicatorState(state);
             }
         }.bind(this, quantity));
-    },
-
-    /**
-     * Get selected product ids from dropdown
-     *
-     * @return array of product ids
-     */
-    getSelectedProductIds: function(dropdown){
-        var index = dropdown.options.selectedIndex;
-        if (dropdown.options[index].config == undefined) {
-            return $A(); // empty list
-        }
-        var productIds = dropdown.options[index].config.allowedProducts;
-
-        return productIds;
     },
     
     /**
