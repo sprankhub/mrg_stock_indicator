@@ -19,18 +19,18 @@ INSTALL_PATH = ''
 # responsibilities
 # =============================================================================
 TEAM_LEADER = {
-    'Torsten Walluhn': 'tw@symmetrics.de'
+    'Torsten Walluhn': 'tw@symmetrics.de',
 }
 
 MAINTAINER = {
-    'Andreas Timm': 'at@symmetrics.de'
+    'Andreas Timm': 'at@symmetrics.de',
 }
 
 AUTHORS = {
     'Andreas Timm': 'at@symmetrics.de',
     'Ngoc Anh Doan': 'nd@symmetrics.de',
     'Torsten Walluhn': 'tw@symmetrics.de',
-    'Yauhen Yakimovich': 'yy@symmetrics.de'
+    'Yauhen Yakimovich': 'yy@symmetrics.de',
 }
 
 # =============================================================================
@@ -50,13 +50,13 @@ NOTES = '''
 # relations
 # =============================================================================
 REQUIRES = [
-    {'magento': '*', 'magento_enterprise': '*'}, 
+    {'magento': '*', 'magento_enterprise': '*'},
 ]
 
 EXCLUDES = {}
 
 DEPENDS_ON_FILES = (
-    'app/code/core/Mage/Catalog/Block/Product/Abstract.php'
+    'app/code/core/Mage/Catalog/Block/Product/Abstract.php',
 )
 
 PEAR_KEY = ''
