@@ -75,7 +75,7 @@ Derzeit ist es nicht möglich die 'rot,gelb,grün'-Schwellenwerte pro Produkt zu
           Werte im Backend auf den tatsächlichen Stock Wert des Produkts zu 
           setzen. Bsp: Vom Produkt ist die Menge von 328 Stck. gegeben, die 
           'red'-Menge min. auf 328 setzen damit dieser Status angezeigt wird.
-*** С: 1. Wiederholen Sie Testcase B mit konfigurierbaren Produkten. Für 
+*** C: 1. Wiederholen Sie Testcase B mit konfigurierbaren Produkten. Für 
           diesen Zweck legen Sie ein neues konfigurierbares Produkt mit mehr 
           als einer Option an. Gehen Sie ins Front-End und beobachten sie die 
           Änderung des Status bei der Options-Auswahl. Bsp.: Es gibt zwei 
@@ -84,11 +84,11 @@ Derzeit ist es nicht möglich die 'rot,gelb,grün'-Schwellenwerte pro Produkt zu
           konfigurierbaren Artikels sind. Es wird davon ausgegangen, dass die 
           Standardwerte des Moduls in der Systemkonfiguration eingetragen 
           sind. 
-       2. (С1) Überprüfen Sie, dass auf der Detail-Seite die gelbe Ampel zu 
+       2. (C1) Überprüfen Sie, dass auf der Detail-Seite die gelbe Ampel zu 
           sehen ist, wenn keine Option ausgewählt ist. Nach der Auswahl von 
           Artikel-A1-B1 sollte die Ampel schon wieder von gelb auf rot 
           wechseln. 
-       3. (С2) Für einen bestimmten Artikel, mit Stückzahl mehr als 'Grün' 
+       3. (C2) Für einen bestimmten Artikel, mit Stückzahl mehr als 'Grün' 
           (z.B. 10000), setzen Sie den Lagerbestand auf 'Nicht auf Lager'. 
           Gehen Sie auf der Detail-Seite und prüfen Sie ob die Ampel rot 
           zeigt. Wiederholen Sie diese Prozedur nicht nur für einfache 
