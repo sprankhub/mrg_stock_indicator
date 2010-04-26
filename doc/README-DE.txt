@@ -22,9 +22,9 @@ Einstellmöglichkeiten vor:
 *** B: Endkunden sehen unterhalb der Produktbewertung auf der jeweiligen Produktseite
 eine einfarbige 'Ampel', die die Verfügbarkeit des Produkts signalisiert.
 *** C: Unterstützung für Configurable Products
-**** C1: Das Modul soll auch in der Lage sein, eine entsprechende Verfügbarkeits-Ampel
+(C1) Das Modul soll auch in der Lage sein, eine entsprechende Verfügbarkeits-Ampel
 für jede Option des Configurable Products darzustellen.
-**** C2: Wenn man den Lagerbestand (egal ob bei einfachen oder konfigurierbaren 
+(C2) Wenn man den Lagerbestand (egal ob bei einfachen oder konfigurierbaren 
 Produkten), auf 'Nicht auf Lager' setzt, wird die Ampel den entsprechenden Bestand 
 anzeigen.
 
