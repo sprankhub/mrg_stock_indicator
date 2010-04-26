@@ -46,7 +46,7 @@
                             <show_in_store>1</show_in_store>
                         </product_view_enabled>
                         <red translate="label">
-                            <label>Red ≥</label>
+                            <label>Red &#8805;</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>2</sort_order>
                             <show_in_default>1</show_in_default>
@@ -54,7 +54,7 @@
                             <show_in_store>1</show_in_store>
                         </red>
                         <yellow translate="label">
-                            <label>Yellow ≥</label>
+                            <label>Yellow &#8805;</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>3</sort_order>
                             <show_in_default>1</show_in_default>
@@ -62,7 +62,7 @@
                             <show_in_store>1</show_in_store>
                         </yellow>
                         <green translate="label">
-                            <label>Green ≥</label>
+                            <label>Green &#8805;</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>4</sort_order>
                             <show_in_default>1</show_in_default>
