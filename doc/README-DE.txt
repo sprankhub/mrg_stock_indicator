@@ -63,7 +63,8 @@ Derzeit ist es nicht möglich die 'rot,gelb,grün'-Schwellenwerte pro Produkt zu
 
 * TESTCASES
 ** BASIC
-*** A: Prüfen Sie, ob die eingebenen Werte im Backend gespeichert werden.
+*** A: Prüfen Sie, ob die eingebenen Werte im Backend gespeichert werden. Testen Sie
+die Ab/Anschaltung der Ampel.
 *** B: Gehen Sie im Frontend auf eine Produktdetails Seite, unterhalb der Produkt-
 bewertung sollte jetzt eine einfarbige 'Ampel' erscheinen. Um die Status 'rot' und
 'gelb' 'frühzeitiger' zu testen, sind die Werte im Backend auf den tatsächlichen
@@ -86,12 +87,17 @@ Lagerbestand auf 'Nicht auf Lager'. Gehen Sie auf der Detail-Seite und prüfen S
 die Ampel rot zeigt. Wiederholen Sie diese Prozedur nicht nur für einfache Produkte, 
 sogar auch für konfigurierbare.
 ** CATCHABLE
-*** A: Keine bekannt
-*** B: Keine bekannt
-*** C: Keine bekannt
+*** A: Backend-Einstellung ist eine standard Funkionalität von Magento. Keine sinvolle 
+CATCHABLE Tests sind bekannt.
+*** B: Den BASIC.B Test durchführen, dabei alle Werte in der Backend-Einstellung der Ampel 
+(A2-A4) auf "0" setzen. Die Ampel muss immer grün sein.
+*** C: Den BASIC.C Test durchführen, dabei auch die Werte in der Backend-Einstellung der Ampel 
+(A2-A4) auf "0" setzen. Die Ampel muss immer grün sein.
 ** STRESS
-*** A: Keine bekannt
-*** B: Keine bekannt
-*** C: Den BASIC.C Test durchführen, dabei sollte die maximale Anzahl der Optionen des 
+*** A: Geben sie negative Werte oder die Textwerte in der Backend-Einstellung der Ampel (A2-A4) ein.
+Führen Sie die BASIC.B und BASIC.C Tests durch.
+*** B: Den BASIC.C Test durchführen, dabei sollte die minimale/maximale Stückzahl des 
+Artikels sinnvoll gewählt sein.
+*** C: Den BASIC.C Test durchführen, dabei sollte die minimale/maximale Anzahl der Optionen des 
 Artikels sinnvoll gewählt sein.
 
