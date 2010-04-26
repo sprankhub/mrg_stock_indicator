@@ -20,13 +20,13 @@
  * @author    Ngoc Anh Doan <nd@symmetrics.de>
  * @author    Yauhen Yakimovich <yy@symmetrics.de>
  * @copyright 2010 symmetrics gmbh
- * @license   http://opensource.org/licenses/osl-3.0.php  Open Software 
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software
  */
 -->
 <config>
     <modules>
         <Symmetrics_StockIndicator>
-            <version>0.2.1</version>
+            <version>0.2.3</version>
         </Symmetrics_StockIndicator>
     </modules>
     <global>

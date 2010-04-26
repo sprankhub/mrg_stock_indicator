@@ -76,7 +76,7 @@ class Symmetrics_StockIndicator_Block_Product_View_Type_Configurable extends Mag
     /**
      * Get configured quantity for the red stockindicator
      *
-     * @return int
+     * @return int configured quantity
      */
     public function getRedConfigQuantity()
     {
@@ -88,7 +88,7 @@ class Symmetrics_StockIndicator_Block_Product_View_Type_Configurable extends Mag
     /**
      * Get configured quantity for the yellow stockindicator
      *
-     * @return int
+     * @return int configured quantity
      */
     public function getYellowConfigQuantity()
     {
@@ -100,7 +100,7 @@ class Symmetrics_StockIndicator_Block_Product_View_Type_Configurable extends Mag
     /**
      * Get configured quantity for the green stockindicator
      *
-     * @return int
+     * @return int configured quantity
      */
     public function getGreenConfigQuantity()
     {

@@ -161,9 +161,9 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
     }
 
     /**
-     * Additional css class for the StockIndicator
+     * Add extra css class to the StockIndicator
      *
-     * @param string $class string of css classes
+     * @param string $class string with additional css class names
      *
      * @return Symmetrics_StockIndicator_Block_Abstract
      */
@@ -178,7 +178,7 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
     /**
      * If no tag is set, div gets set as default HTML tag
      *
-     * @return string  HTML tag
+     * @return string HTML tag
      */
     public function getHtmlTag()
     {
@@ -192,7 +192,7 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
     /**
      * Css classes for HTML
      *
-     * @return string  css classes
+     * @return string css classes
      */
     public function getCssClass()
     {
@@ -203,7 +203,7 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
      * Current stock state of product which is defined in the backend and depends
      * on the stock|quantity
      *
-     * @return string  red | yellow | green
+     * @return string red | yellow | green
      */
     public function getProductState()
     {
@@ -213,7 +213,7 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
     /**
      * HTML attribute - title - which will shown on hover indicator
      *
-     * @return string  HTML title
+     * @return string HTML title
      */
     public function getStateTitle()
     {
@@ -239,7 +239,7 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
      *
      * @see Symmetrics_StockIndicator_Block_Abstract::_alignment
      * @see Symmetrics_StockIndicator_Block_Abstract::setAlignment()
-     * @return string  alignment
+     * @return string alignment
      */
     public function getAlignment()
     {
@@ -249,7 +249,7 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
     /**
      * Gets product ID
      *
-     * @return int  product ID
+     * @return int product ID
      */
     public function getProductId()
     {
@@ -280,7 +280,7 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
      *
      * @param Mage_Catalog_Model_Product $product specific product
      *
-     * @return int  stock/quantity
+     * @return int stock/quantity
      */
     public function getProductStockQuantity($product = null)
     {
@@ -353,6 +353,7 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
     public function setOption($index, $value)
     {
         $this->_options[trim($index)] = trim($value);
+        
         return $this;
     }
 
@@ -367,6 +368,7 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
     public function setAlignment($alignment)
     {
         $this->_alignment = strtolower(trim($alignment));
+        
         return $this;
     }
 }

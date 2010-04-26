@@ -158,23 +158,29 @@ Symmetrics.Product.StockIndicatorConfig.prototype = {
 
     /**
      * Set indicator to RED
+     *
+     * @return Symmetrics.Product.StockIndicatorConfig
      */
     setRedState: function(){
-        this.updateIndicatorState(this.RED_STATE);
+        return this.updateIndicatorState(this.RED_STATE);
     },
 
     /**
      * Set indicator to YELLOW
+     *
+     * @return Symmetrics.Product.StockIndicatorConfig
      */
     setYellowState: function(){
-        this.updateIndicatorState(this.YELLOW_STATE);
+        return this.updateIndicatorState(this.YELLOW_STATE);
     },
 
     /**
      * Set indicator to GREEN
+     *
+     * @return Symmetrics.Product.StockIndicatorConfig
      */
     setGreenState: function(){
-        this.updateIndicatorState(this.GREEN_STATE);
+        return this.updateIndicatorState(this.GREEN_STATE);
     },
 
     /**
