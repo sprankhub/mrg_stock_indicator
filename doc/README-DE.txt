@@ -85,7 +85,8 @@ von gelb auf rot wechseln.
 Lagerbestand auf 'Nicht auf Lager'. Gehen Sie auf der Detail-Seite und prüfen Sie ob 
 die Ampel rot zeigt. Wiederholen Sie diese Prozedur nicht nur für einfache Produkte, 
 sogar auch für konfigurierbare.
-
 ** CATCHABLE
-
+*** Keine bekannt
 ** STRESS
+*** C: Den BASIC.C Test durchführen, dabei sollte die maximale Anzahl der Optionen des 
+Artikels sinnvoll gewählt sein. 
