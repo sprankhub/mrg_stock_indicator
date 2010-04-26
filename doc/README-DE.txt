@@ -86,7 +86,12 @@ Lagerbestand auf 'Nicht auf Lager'. Gehen Sie auf der Detail-Seite und prüfen S
 die Ampel rot zeigt. Wiederholen Sie diese Prozedur nicht nur für einfache Produkte, 
 sogar auch für konfigurierbare.
 ** CATCHABLE
-*** Keine bekannt
+*** A: Keine bekannt
+*** B: Keine bekannt
+*** C: Keine bekannt
 ** STRESS
+*** A: Keine bekannt
+*** B: Keine bekannt
 *** C: Den BASIC.C Test durchführen, dabei sollte die maximale Anzahl der Optionen des 
-Artikels sinnvoll gewählt sein. 
+Artikels sinnvoll gewählt sein.
+
