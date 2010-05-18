@@ -2,10 +2,10 @@
 
 ** INSTALLATION
 Extrahieren Sie den Inhalt dieses Archivs in Ihr Magento Verzeichnis und 
-aktivieren es im Backend in der Systemkonfiguration > Lagerwaltung.
+aktivieren Sie es im Backend in der Systemkonfiguration > Lagerwaltung.
 
 ** USAGE
-Dieses Modul zeigt auf Produktdetail-Seiten - anhand eines 'Ampel'-Symbols - 
+Dieses Modul zeigt auf Produktdetailseiten - anhand eines 'Ampel'-Symbols - 
 den aktuellen Warenbestand des Produkts an. Die jeweilige Farbe (rot, gelb, 
 grün) der 'Ampel' richtet sich nach den im Backend konfigurierten 
 'Stock'-Werten. Das Modul unterstütz einfache und konfigurierbare Produkte. 
@@ -36,7 +36,7 @@ In der Layout Datei (stockindicator.xml) wird der 'alert.urls' Block von
 Symmetrics_StockIndicator_Block_Abstract erbt von 
 Mage_Catalog_Block_Product_Abstract. Daher ist es möglich, mittels 
 $this->getProduct() auf die Daten des Produkts zu zugreifen. Die vorhandene 
-Menge ('qty') wird mit den definierten Mengen gegengeprüft um den Status 
+Menge ('qty') wird mit den definierten Mengen gegengeprüft, um den Status 
 (rot,gelb,grün) zu ermitteln und anschließend mit 
 Symmetrics_StockIndicator_Block_Abstract::_render() einen HTML div-Block aus
 Default Werten - wenn nicht explizit vorher mit den Settern überschrieben - 
@@ -45,8 +45,8 @@ als CSS-Klasse definiert. Kinder der Symmetrics_StockIndicator_Block_Abstract
 Klasse können die Klassen-Attribute überschreiben, wenn diese vor 
 dem _prepareLayout() der Elternklasse erfolgt, sonst hat es keine Auswirkung 
 auf Symmetrics_StockIndicator_Block_Abstract::getStockIndicatorAsHtml().
-Was die Unterstützung für Configurable Products betrifft, wurde es eine 
-JS Klasse entwickelt, die die Verwaltung der Ampel auf dynamischen Wege 
+Was die Unterstützung für Configurable Products betrifft, wurde eine 
+JS Klasse entwickelt, die die Verwaltung der Ampel auf dynamischem Wege 
 ermöglicht. Der entsprechende Block 
 Symmetrics_StockIndicator_Block_Product_View_Type_Configurable() ist in der 
 Layout Datei (stockindicator.xml) registriert, so dass das Template 
@@ -56,7 +56,7 @@ Symmetrics.Product.StockIndicatorConfig. Die Klasse verfügt über
 Konstruktionen die die Änderung des Status erleichtern. Die PHP-Seite 
 beschäftigt sich mit der Vorbereitung einer Liste mit Stückzahl pro 
 Mage_Catalog_Model_Product_Type_Configurable_Attribute für jedes einfache 
-Produkt, das man auf die Produktdetail-Seite auswählen kann. Das Ereignis, 
+Produkt, das man auf der Produktdetail-Seite auswählen kann. Das Ereignis, 
 das ausgelöst wird, wenn die Optionen vom Benutzer geändert/ausgewählt werden, 
 berechnet den neuen Status des Indikators.
 
@@ -70,21 +70,21 @@ Derzeit ist es nicht möglich die 'rot,gelb,grün'-Schwellenwerte pro Produkt zu
 *** A: 1. Prüfen Sie, ob die eingebenen Werte im Backend gespeichert werden. 
        2. Testen Sie die Ab/Anschaltung der Ampel.
 *** B: 1. Gehen Sie im Frontend auf eine Produktdetails Seite, unterhalb der 
-          Produkt-bewertung sollte jetzt eine einfarbige 'Ampel' erscheinen. 
+          Produktbewertung sollte jetzt eine einfarbige 'Ampel' erscheinen. 
           Um die Status 'rot' und 'gelb' 'frühzeitiger' zu testen, sind die 
           Werte im Backend auf den tatsächlichen Stock Wert des Produkts zu 
           setzen. Bsp: Vom Produkt ist die Menge von 328 Stck. gegeben, die 
           'red'-Menge min. auf 328 setzen damit dieser Status angezeigt wird.
 *** C: 1. Wiederholen Sie Testcase B mit konfigurierbaren Produkten. Für 
           diesen Zweck legen Sie ein neues konfigurierbares Produkt mit mehr 
-          als einer Option an. Gehen Sie ins Front-End und beobachten sie die 
+          als einer Option an. Gehen Sie ins Front-End und beobachten Sie die 
           Änderung des Status bei der Options-Auswahl. Bsp.: Es gibt zwei 
-          einfache verknüpfte Artikel: Artikel-A1-B1 und Artikel-A1-B2 mit 1 
-          und 21 Stück auf dem Lager, wobei A und B Optionen des 
+          einfach verknüpfte Artikel: Artikel-A1-B1 und Artikel-A1-B2 mit 1 
+          und 21 Stück auf Lager, wobei A und B Optionen des 
           konfigurierbaren Artikels sind. Es wird davon ausgegangen, dass die 
           Standardwerte des Moduls in der Systemkonfiguration eingetragen 
           sind. 
-       2. (C1) Überprüfen Sie, dass auf der Detail-Seite die gelbe Ampel zu 
+       2. (C1) Überprüfen Sie, ob auf der Detail-Seite die gelbe Ampel zu 
           sehen ist, wenn keine Option ausgewählt ist. Nach der Auswahl von 
           Artikel-A1-B1 sollte die Ampel schon wieder von gelb auf rot 
           wechseln. 
@@ -96,7 +96,7 @@ Derzeit ist es nicht möglich die 'rot,gelb,grün'-Schwellenwerte pro Produkt zu
 
 ** CATCHABLE
 *** A: 1. Backend-Einstellung ist eine standard Funkionalität von Magento. 
-          Keine sinvolle CATCHABLE Tests sind bekannt.
+          Keine sinvollen CATCHABLE Tests sind bekannt.
 *** B: 1. Den BASIC.B Test durchführen, dabei alle Werte in der 
           Backend-Einstellung der Ampel (A2-A4) auf "0" setzen. Die Ampel 
           muss immer grün sein.
@@ -105,7 +105,7 @@ Derzeit ist es nicht möglich die 'rot,gelb,grün'-Schwellenwerte pro Produkt zu
           muss immer grün sein.
 
 ** STRESS
-*** A: 1. Geben sie negative Werte oder die Textwerte in der 
+*** A: 1. Geben Sie negative Werte oder die Textwerte in der 
           Backend-Einstellung der Ampel (A2-A4) ein. Führen Sie die BASIC.B 
           und BASIC.C Tests durch.
 *** B: 1. Den BASIC.C Test durchführen, dabei sollte die minimale/maximale 
