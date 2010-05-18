@@ -34,8 +34,7 @@
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
  */
-
-if (Mage::helper('stockindicator')->isStockIndicatorEnabled()) : ?>
+if (Mage::helper('stockindicator')->isStockIndicatorEnabled()): ?>
 <script type="text/javascript">
     //<![CDATA[
     Event.observe(window, 'load', function() {
@@ -54,7 +53,7 @@ if (Mage::helper('stockindicator')->isStockIndicatorEnabled()) : ?>
         }        
         <?php if ($this->isProductInStock()):?>
         var isProductInStock = true;
-        <?php else:?>
+        <?php else: ?>
         var isProductInStock = false;
         <?php endif ?>
         var stockindicator = new Symmetrics.Product.StockIndicatorConfig(

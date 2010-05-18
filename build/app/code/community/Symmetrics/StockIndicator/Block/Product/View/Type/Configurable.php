@@ -80,9 +80,7 @@ class Symmetrics_StockIndicator_Block_Product_View_Type_Configurable extends Mag
      */
     public function getRedConfigQuantity()
     {
-        $quantity = $this->getQuantityConfig(self::RED_STATE);
-
-        return $quantity;
+        return $this->getQuantityConfig(self::RED_STATE);
     }
 
     /**
@@ -92,9 +90,7 @@ class Symmetrics_StockIndicator_Block_Product_View_Type_Configurable extends Mag
      */
     public function getYellowConfigQuantity()
     {
-        $quantity = $this->getQuantityConfig(self::YELLOW_STATE);
-
-        return $quantity;
+        return $this->getQuantityConfig(self::YELLOW_STATE);
     }
 
     /**
@@ -104,9 +100,7 @@ class Symmetrics_StockIndicator_Block_Product_View_Type_Configurable extends Mag
      */
     public function getGreenConfigQuantity()
     {
-        $quantity = $this->getQuantityConfig(self::GREEN_STATE);
-
-        return $quantity;
+        return $this->getQuantityConfig(self::GREEN_STATE);
     }
 
     /**
@@ -123,6 +117,7 @@ class Symmetrics_StockIndicator_Block_Product_View_Type_Configurable extends Mag
         } else {
             $stockItem =  $this->getProduct()->getStockItem();
         }
+
         $isInStock = $stockItem->getIsInStock();
 
         return (boolean) $isInStock;

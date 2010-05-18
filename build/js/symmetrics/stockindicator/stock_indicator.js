@@ -58,7 +58,7 @@ Symmetrics.Product.StockIndicatorConfig.prototype = {
      * Constructor
      */
     initialize: function(isProductInStock, spConfig, productQuantities,
-        redConfig, yellowConfig, greenConfig){
+        redConfig, yellowConfig, greenConfig) {
         this.indicator = null;
         this.isProductInStock = isProductInStock;
         this.spConfig = spConfig;
@@ -93,7 +93,7 @@ Symmetrics.Product.StockIndicatorConfig.prototype = {
      *
      * @return list of states
      */
-    getIndicatorStates: function(){
+    getIndicatorStates: function() {
         return [this.RED_STATE, this.YELLOW_STATE, this.GREEN_STATE];
     },
 
@@ -102,14 +102,13 @@ Symmetrics.Product.StockIndicatorConfig.prototype = {
      *
      * @return element
      */
-    getIndicator: function(){
+    getIndicator: function() {
         if (!this.indicator) {
             var selector = this.STOCK_INDICATOR_SELECTOR;
             this.indicator = $$(selector)[0];
         }
         return this.indicator;
     },
-
 
     /**
      * Update state of the indicator in the DOM
@@ -118,7 +117,7 @@ Symmetrics.Product.StockIndicatorConfig.prototype = {
      *
      * @return Symmetrics.Product.StockIndicatorConfig
      */
-    updateIndicatorState: function(state){
+    updateIndicatorState: function(state) {
         if (this.currentState == state) {
             // no new changes will be introduced; ignore
             return this;
@@ -145,10 +144,10 @@ Symmetrics.Product.StockIndicatorConfig.prototype = {
      *
      * @return Symmetrics.Product.StockIndicatorConfig
      */
-    clearIndicatorState: function(){
+    clearIndicatorState: function() {
         var cssStateClassnames = ['red', 'yellow', 'green'];
-        cssStateClassnames.each(function(state){        
-            if (this.getIndicator().hasClassName(state)){                
+        cssStateClassnames.each(function(state) {
+            if (this.getIndicator().hasClassName(state)) {
                 this.getIndicator().removeClassName(state);
             }
         }.bind(this));
@@ -161,7 +160,7 @@ Symmetrics.Product.StockIndicatorConfig.prototype = {
      *
      * @return Symmetrics.Product.StockIndicatorConfig
      */
-    setRedState: function(){
+    setRedState: function() {
         return this.updateIndicatorState(this.RED_STATE);
     },
 
@@ -170,7 +169,7 @@ Symmetrics.Product.StockIndicatorConfig.prototype = {
      *
      * @return Symmetrics.Product.StockIndicatorConfig
      */
-    setYellowState: function(){
+    setYellowState: function() {
         return this.updateIndicatorState(this.YELLOW_STATE);
     },
 
@@ -179,7 +178,7 @@ Symmetrics.Product.StockIndicatorConfig.prototype = {
      *
      * @return Symmetrics.Product.StockIndicatorConfig
      */
-    setGreenState: function(){
+    setGreenState: function() {
         return this.updateIndicatorState(this.GREEN_STATE);
     },
 
@@ -188,7 +187,7 @@ Symmetrics.Product.StockIndicatorConfig.prototype = {
      *
      * @return element
      */
-    getLastDropdown: function(){
+    getLastDropdown: function() {
         return this.spConfig.settings.last();
     },
 
@@ -196,7 +195,7 @@ Symmetrics.Product.StockIndicatorConfig.prototype = {
      * Observe options selection by user, so that we know when
      * we have the simple product
      */
-    observeOptionDropdowns: function(){
+    observeOptionDropdowns: function() {
         // check if there is anuthing to observe
         if (this.spConfig === undefined || this.spConfig.settings === undefined) {
             return;
@@ -204,7 +203,7 @@ Symmetrics.Product.StockIndicatorConfig.prototype = {
 
         // observe each option dropdown
         var optionDropdowns = this.spConfig.settings;
-        optionDropdowns.each(function(dropdown){
+        optionDropdowns.each(function(dropdown) {
             dropdown.observe('change', this.updateOnChange.bind(this));
         }.bind(this));
     },
@@ -214,11 +213,11 @@ Symmetrics.Product.StockIndicatorConfig.prototype = {
      *
      * @param event Prototype Event argument
      */
-    updateOnChange: function(event){
+    updateOnChange: function(event) {
         // take dropdown
         var dropdown = event.target;
 
-        if (this.isEmptyOptionSelected(dropdown)) {            
+        if (this.isEmptyOptionSelected(dropdown)) {
             this.updateStateByParentQuantity(dropdown);
             return;
         }
@@ -240,7 +239,7 @@ Symmetrics.Product.StockIndicatorConfig.prototype = {
      * 
      * @return boolean true if so
      */
-    isEmptyOptionSelected: function(dropdown){
+    isEmptyOptionSelected: function(dropdown) {
         var index = dropdown.options.selectedIndex;
         if (!dropdown.options[index].value) {
             return true;
@@ -288,9 +287,9 @@ Symmetrics.Product.StockIndicatorConfig.prototype = {
      *
      * @return int quantity sum
      */
-    sumProductsQuantity: function(productIds){
+    sumProductsQuantity: function(productIds) {
         var quantity = 0;
-        var quantities = productIds.collect(function(productId){
+        var quantities = productIds.collect(function(productId) {
             return this.getProductQuantity(productId);
         }.bind(this)).toArray();
         for (var index = 0, len = quantities.length; index < len; ++index) {
@@ -307,7 +306,7 @@ Symmetrics.Product.StockIndicatorConfig.prototype = {
      *
      * @return array of product ids
      */
-    getSelectedProductIds: function(dropdown){
+    getSelectedProductIds: function(dropdown) {
         var index = dropdown.options.selectedIndex;
         if (dropdown.options[index].config == undefined) {
             return $A(); // empty list
@@ -327,7 +326,7 @@ Symmetrics.Product.StockIndicatorConfig.prototype = {
      *
      * @return int
      */
-    getAllProductsQuantity: function(){
+    getAllProductsQuantity: function() {
         var quantity = 0;
         var quantities = Object.values(this.productQuantities);
         for (var index = 0, len = quantities.length; index < len; ++index) {
@@ -342,8 +341,8 @@ Symmetrics.Product.StockIndicatorConfig.prototype = {
      *
      * @param quantity int
      */
-    updateIndicatorStateByQuantity: function(quantity){
-        this.getIndicatorStates().each(function(quantity, state){
+    updateIndicatorStateByQuantity: function(quantity) {
+        this.getIndicatorStates().each(function(quantity, state) {
             if (quantity >= this.getConfigQuantity(state)) {
                 this.updateIndicatorState(state);
             }
@@ -357,7 +356,7 @@ Symmetrics.Product.StockIndicatorConfig.prototype = {
      *
      * @return int product quantity
      */
-    getProductQuantity: function(productId){
+    getProductQuantity: function(productId) {
         var quantity = this.productQuantities[productId];
         return quantity;
     },
@@ -369,7 +368,7 @@ Symmetrics.Product.StockIndicatorConfig.prototype = {
      *
      * @return int configured product quantity
      */
-    getConfigQuantity: function(state){
+    getConfigQuantity: function(state) {
         var quantity = this.configQuantities[state];
         return quantity;
     }
