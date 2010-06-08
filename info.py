@@ -6,7 +6,7 @@
 # =============================================================================
 NAME = 'symmetrics_module_stock_indicator'
 
-TAGS = ('magento', 'symmetrics', 'module', 'stock', 'indicator', 'germanconfig', 'locpack')
+TAGS = ('magento', 'symmetrics', 'module', 'stock', 'indicator', 'mrg')
 
 LICENSE = 'AFL 3.0'
 
@@ -19,17 +19,18 @@ INSTALL_PATH = ''
 # responsibilities
 # =============================================================================
 TEAM_LEADER = {
-    'Torsten Walluhn': 'tw@symmetrics.de'
+    'Torsten Walluhn': 'tw@symmetrics.de',
 }
 
 MAINTAINER = {
-    'Andreas Timm': 'at@symmetrics.de'
+    'Andreas Timm': 'at@symmetrics.de',
 }
 
 AUTHORS = {
     'Andreas Timm': 'at@symmetrics.de',
     'Ngoc Anh Doan': 'nd@symmetrics.de',
-    'Torsten Walluhn': 'tw@symmetrics.de'
+    'Torsten Walluhn': 'tw@symmetrics.de',
+    'Yauhen Yakimovich': 'yy@symmetrics.de',
 }
 
 # =============================================================================
@@ -49,18 +50,18 @@ NOTES = '''
 # relations
 # =============================================================================
 REQUIRES = [
-    {'magento': '*', 'magento_enterprise': '*'}, 
+    {'magento': '*', 'magento_enterprise': '*'},
 ]
 
 EXCLUDES = {}
 
 DEPENDS_ON_FILES = (
-    'app/code/core/Mage/Catalog/Block/Product/Abstract.php'
+    'app/code/core/Mage/Catalog/Block/Product/Abstract.php',
 )
 
 PEAR_KEY = ''
 
 COMPATIBLE_WITH = {
-    'magento': ['1.3.2.1', '1.3.2.3', '1.3.2.4', '1.4.0.0', '1.4.0.1'],
-    'magento_enterprise': ['1.3.2.1', '1.3.2.3', '1.3.2.4', '1.7.0.0'],
+    'magento': ['1.4.0.0', '1.4.0.1'],
+    'magento_enterprise': ['1.7.0.0', '1.7.1.0', '1.8.0.0'],
 }

@@ -14,10 +14,10 @@
  *
  * @category  Symmetrics
  * @package   Symmetrics_StockIndicator
- * @author    Symmetrics GmbH <info@symmetrics.de>
+ * @author    symmetrics gmbh <info@symmetrics.de>
  * @author    Andreas Timm <at@symmetrics.de>
  * @author    Ngoc Anh Doan <nd@symmetrics.de>
- * @copyright 2010 Symmetrics GmbH
+ * @copyright 2010 symmetrics gmbh
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.symmetrics.de/
  */
@@ -27,15 +27,20 @@
  *
  * @category  Symmetrics
  * @package   Symmetrics_StockIndicator
- * @author    Symmetrics GmbH <info@symmetrics.de>
+ * @author    symmetrics gmbh <info@symmetrics.de>
  * @author    Andreas Timm <at@symmetrics.de>
  * @author    Ngoc Anh Doan <nd@symmetrics.de>
  * @copyright symmetrics gmbh
- * @license http://opensource.org/licenses/osl-3.0.php  Open Software 
+ * @license http://opensource.org/licenses/osl-3.0.php  Open Software
  */
-$installer = $this;
+
 /* @var $installer Mage_Core_Model_Resource_Setup */
+$installer = $this;
+
+$installer->startSetup();
 
 $installer->setConfigData('cataloginventory/stock_indicator/red', '0');
 $installer->setConfigData('cataloginventory/stock_indicator/yellow', '20');
 $installer->setConfigData('cataloginventory/stock_indicator/green', '40');
+
+$installer->endSetup();

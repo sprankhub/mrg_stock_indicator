@@ -18,29 +18,35 @@
  * @author    symmetrics gmbh <info@symmetrics.de>
  * @author    Andreas Timm <at@symmetrics.de>
  * @author    Ngoc Anh Doan <nd@symmetrics.de>
- * @copyright 2010 Symmetrics GmbH
- * @license   http://opensource.org/licenses/osl-3.0.php  Open Software 
+ * @author    Yauhen Yakimovich <yy@symmetrics.de>
+ * @copyright 2010 symmetrics gmbh
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software
  */
 -->
 <config>
     <modules>
         <Symmetrics_StockIndicator>
-            <version>0.1.11</version>
+            <version>0.2.8</version>
         </Symmetrics_StockIndicator>
     </modules>
     <global>
+        <models>
+            <stockindicator>
+                <class>Symmetrics_StockIndicator_Model</class>
+            </stockindicator>
+        </models>
         <blocks>
             <stockindicator>
                 <class>Symmetrics_StockIndicator_Block</class>
             </stockindicator>
         </blocks>
         <resources>
-            <Symmetrics_StockIndicator>
+            <stockindicator_setup>
                 <setup>
                     <module>Symmetrics_StockIndicator</module>
                     <class>Mage_Core_Model_Resource_Setup</class>
                 </setup>
-            </Symmetrics_StockIndicator>
+            </stockindicator_setup>
         </resources>
         <helpers>
             <stockindicator>
