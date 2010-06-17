@@ -13,8 +13,8 @@ Die Produkte mit dem Lagerbestand 'Nicht auf Lager', werden immer mit einer
 roten Ampel angezeigt.
 
 ** FUNCTIONALITY
-*** A: Im Backend - 'System > Konfiguration - Katalog > Lager' - liegen nun 
-       folgende Einstellmöglichkeiten vor:
+*** A: Im Backend - 'System -> Konfiguration -> Katalog -> Lagerverwaltung' - 
+       liegen nun folgende Einstellmöglichkeiten vor:
        (A1) 'Ampel'-Anzeige aktivieren
        (A2) ab welcher Menge rot angezeigt wird
        (A3) ab welcher Menge gelb angezeigt wird
