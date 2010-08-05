@@ -42,7 +42,7 @@ class Symmetrics_StockIndicator_Helper_Data extends Mage_Core_Helper_Abstract
      * @see Symmetrics_StockIndicator_Model_Config
      * @return bollean true if so
      */
-    public function isStockIndicatorEnabled()
+    public function isIndicatorEnabled()
     {
         $isEnabled = Mage::getSingleton('stockindicator/config')->isEnabled();
 

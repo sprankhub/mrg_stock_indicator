@@ -101,12 +101,12 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
      */
     public function init()
     {
-        /* @var Symmetrics_StockIndicator_Model_Config $stockIndicatorModelConfig */
-        $stockIndicatorModelConfig = Mage::getSingleton('stockindicator/config');
+        /* @var Symmetrics_StockIndicator_Model_Config $stockIndicatorConfig */
+        $stockIndicatorConfig = Mage::getSingleton('stockindicator/config');
 
         // check if enabled
-        $isStockIndicatorEnabled = $stockIndicatorModelConfig->isEnabled();
-        if (!$isStockIndicatorEnabled) {
+        $isIndicatorEnabled = $stockIndicatorConfig->isEnabled();
+        if (!$isIndicatorEnabled) {
             return;
         }
 
@@ -131,13 +131,13 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
      */
     private function _initProductStateByQuantity()
     {
-        /* @var Symmetrics_StockIndicator_Model_Config $stockIndicatorModelConfig */
-        $stockIndicatorModelConfig = Mage::getSingleton('stockindicator/config');
+        /* @var Symmetrics_StockIndicator_Model_Config $stockIndicatorConfig */
+        $stockIndicatorConfig = Mage::getSingleton('stockindicator/config');
 
         // Array for the following foreach statement
         $states = array(self::RED_STATE, self::YELLOW_STATE, self::GREEN_STATE);
 
-        $configQuantities = $stockIndicatorModelConfig->getConfig();
+        $configQuantities = $stockIndicatorConfig->getConfig();
         $productQuantity = $this->getProductStockQuantity();
 
         // Sets state and HTML title attribute of product
