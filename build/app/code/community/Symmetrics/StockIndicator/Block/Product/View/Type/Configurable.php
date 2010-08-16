@@ -168,7 +168,6 @@ class Symmetrics_StockIndicator_Block_Product_View_Type_Configurable extends Mag
     public function getJsonProductQuantities()
     {
         $productQuantities = array();
-        $store = Mage::app()->getStore();
 
         foreach ($this->getAllowProducts() as $product) {
             $productId  = $product->getId();
