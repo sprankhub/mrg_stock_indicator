@@ -31,6 +31,7 @@ AUTHORS = {
     'Ngoc Anh Doan': 'nd@symmetrics.de',
     'Torsten Walluhn': 'tw@symmetrics.de',
     'Yauhen Yakimovich': 'yy@symmetrics.de',
+    'Eric Reiche': 'er@symmetrics.de',
 }
 
 # =============================================================================
@@ -39,7 +40,7 @@ AUTHORS = {
 INFO = 'Ampel für Lagerbestand'
 
 SUMMARY = '''
-    Zeigt 3-farbige Ampel. Die Einstellungen dafür findet man unter
+    Zeigt eine 3-farbige Ampel. Die Einstellungen dafür findet man unter
     Admin Panel/System/Configuration/Inventory/Stock Indicator.
 '''
 
