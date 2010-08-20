@@ -61,11 +61,17 @@ class Symmetrics_StockIndicator_Helper_Stock extends Mage_Core_Helper_Abstract
         // Sets state and HTML title attribute of product
         // based on quantity matching against configuration values
         if (!$this->isProductInStock($product)) {
-            $state['color'] = $state;
-            $state['title'] = $this->__('Currently out of stock!');
+            $returnState['color'] = $state;
+            $returnState['title'] = $this->__('Currently out of stock!');
             
-            return $state;
+            return $returnState;
         }
+        
+        $returnState = array(
+            'color' => Symmetrics_StockIndicator_Block_Abstract::RED_STATE,
+            'title' => $this->__('Currently out of stock!')
+        );
+        
         foreach ($states as $state) {
             if ($productQuantity >= $configQuantities[$state]) {
                 $returnState['color'] = $state;
@@ -80,8 +86,6 @@ class Symmetrics_StockIndicator_Helper_Stock extends Mage_Core_Helper_Abstract
                     case $states[2]:
                         $returnState['title'] = $this->__('In stock');
                         break;
-                    default:
-                        throw new Exception('Invalid stock state');
                 }
             }
         }
