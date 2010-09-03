@@ -29,7 +29,8 @@ roten Ampel angezeigt.
        (C2) Wenn man den Lagerbestand (egal ob bei einfachen oder 
        konfigurierbaren Produkten), auf 'Nicht auf Lager' setzt, wird die 
        Ampel den entsprechenden Bestand anzeigen.
-*** D: Helper für Listen - Es gibt einen Helper "Stock", welchem man ein bestimmtes Produktmodel übergeben kann. Für dieses spezielle Produkt wird dann der Indicator Status zurückgegeben.
+*** D: Helper für Listen (This feature is ONLY supported for the project "jet"!!!)
+Es gibt einen Helper "Stock", welchem man ein bestimmtes Produktmodel übergeben kann. Für dieses spezielle Produkt wird dann der Indicator Status zurückgegeben.
 Der Helper kann wie folgt eingebunden werden:
 <?
     $availability = Mage::Helper('stockindicator/stock');
@@ -104,7 +105,9 @@ Derzeit ist es nicht möglich die 'rot,gelb,grün'-Schwellenwerte pro Produkt zu
           Gehen Sie auf der Detail-Seite und prüfen Sie ob die Ampel rot 
           zeigt. Wiederholen Sie diese Prozedur nicht nur für einfache 
           Produkte, sogar auch für konfigurierbare.
-*** D: 1. Binden Sie den oben erwähnten code z.B. in catalog/product/list.phtml ein. Die erste Zuweisung kann global einmalig oben im Template eingebunden werden, die restlichen Zeilen innerhalb der Produktschleife.
+*** D: 1. (This feature is ONLY supported for the project "jet"!!!)Binden Sie den oben erwähnten code z.B. 
+          in catalog/product/list.phtml ein. Die erste Zuweisung kann global einmalig oben im Template eingebunden 
+          werden, die restlichen Zeilen innerhalb der Produktschleife.
        2. Prüfen Sie, ob der Status in der Produktliste (bzw. dem entsprechenden Template) angezeigt wird.
 
 ** CATCHABLE
