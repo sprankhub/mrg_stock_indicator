@@ -38,18 +38,18 @@ if (Mage::helper('stockindicator')->isIndicatorEnabled()): ?>
 <script type="text/javascript">
     //<![CDATA[
     Event.observe(window, 'load', function() {
-        var productQuantities = <? echo $this->getJsonProductQuantities() ?>;
+        var productQuantities = <?php echo $this->getJsonProductQuantities() ?>;
         var redConfig = {
-            quantity: '<? echo $this->getRedConfigQuantity() ?>',
-            title: '<? echo $this->__('Currently out of stock!') ?>'
+            quantity: '<?php echo $this->getRedConfigQuantity() ?>',
+            title: '<?php echo $this->__('Currently out of stock!') ?>'
         };
         var yellowConfig = {
-            quantity: '<? echo $this->getYellowConfigQuantity() ?>',
-            title: '<? echo $this->__('Only a few available!') ?>'
+            quantity: '<?php echo $this->getYellowConfigQuantity() ?>',
+            title: '<?php echo $this->__('Only a few available!') ?>'
         }
         var greenConfig = {
-            quantity: '<? echo $this->getGreenConfigQuantity() ?>',
-            title: '<? echo $this->__('In stock') ?>'
+            quantity: '<?php echo $this->getGreenConfigQuantity() ?>',
+            title: '<?php echo $this->__('In stock') ?>'
         }        
         <?php if ($this->isProductInStock()):?>
         var isProductInStock = true;
