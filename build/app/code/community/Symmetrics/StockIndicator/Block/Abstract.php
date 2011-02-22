@@ -118,7 +118,7 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
             // set RED state
             $this->setProductState(self::RED_STATE);
             $this->setStateTitle($this->__('Currently out of stock!'));
-        }        
+        }
 
         // Default css classes
         $this->addCssClass('stock-indicator ' . $this->getAlignment() . ' ' . $this->getProductState());
@@ -357,7 +357,7 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
     public function setOption($index, $value)
     {
         $this->_options[trim($index)] = trim($value);
-        
+
         return $this;
     }
 
@@ -372,7 +372,7 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
     public function setAlignment($alignment)
     {
         $this->_alignment = strtolower(trim($alignment));
-        
+
         return $this;
     }
 }

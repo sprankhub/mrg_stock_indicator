@@ -37,7 +37,7 @@
         <reference name="head">
             <action method="addJs"><script>symmetrics/stockindicator/stock_indicator.js</script></action>
         </reference>
-        <reference name="alert.urls">            
+        <reference name="alert.urls">
             <block type="stockindicator/product_view_type_configurable" name="product.info.configurable.stockindicator" template="stockindicator/product/view/type/configurable.phtml" />
         </reference>
     </PRODUCT_TYPE_configurable>

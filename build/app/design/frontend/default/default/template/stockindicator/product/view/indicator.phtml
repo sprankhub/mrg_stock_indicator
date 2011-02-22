@@ -39,7 +39,7 @@
 ?>
 <?php if (Mage::helper('stockindicator')->isIndicatorEnabled()): ?>
     <div class="stock-indicator-wrapper">
-        <<?php echo $this->getHtmlTag()?> id="product-<?php echo $this->getProductId() ?>" class="<?php echo $this->getCssClass() ?>" title="<?php echo $this->getStateTitle() ?>"> &nbsp; </<?php echo $this->getHtmlTag()?>>
+        <<?php echo $this->getHtmlTag() ?> id="product-<?php echo $this->getProductId() ?>" class="<?php echo $this->getCssClass() ?>" title="<?php echo $this->getStateTitle() ?>"> &nbsp; </<?php echo $this->getHtmlTag() ?>>
         <input id="product-id" type="hidden" value="<?php echo $this->getProductId() ?>"/>
     </div>
 <?php endif ?>
