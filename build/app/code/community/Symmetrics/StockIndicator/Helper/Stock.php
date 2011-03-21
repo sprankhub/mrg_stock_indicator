@@ -57,12 +57,18 @@ class Symmetrics_StockIndicator_Helper_Stock extends Mage_Core_Helper_Abstract
 
         $configQuantities = $configModel->getConfig();
         $productQuantity = $this->getProductStockQuantity($product);
-
         // Sets state and HTML title attribute of product
         // based on quantity matching against configuration values
         if (!$this->isProductInStock($product)) {
             $returnState['color'] = $state;
             $returnState['title'] = $this->__('Currently out of stock!');
+            
+            return $returnState;
+        }
+        
+        if (!$product->getStockItem()->getManageStock()) {
+            $returnState['color'] = Symmetrics_StockIndicator_Block_Abstract::GREEN_STATE;
+            $returnState['title'] = $this->__('In stock');
             
             return $returnState;
         }
