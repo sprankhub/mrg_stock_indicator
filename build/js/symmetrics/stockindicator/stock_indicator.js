@@ -347,6 +347,8 @@ Symmetrics.Product.StockIndicatorConfig.prototype = {
                 this.updateIndicatorState(state);
             }
         }.bind(this, quantity));
+        //Fire custom prototype event.
+        document.fire("stock:indicator");
     },
     
     /**
