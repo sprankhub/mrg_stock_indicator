@@ -2,7 +2,7 @@
 
 ** INSTALLATION
 Extract content of this archive in your Magento directory and 
-activate it in the backend in the system configuration> Stock management .
+activate it in the backend in the system configuration> Stock management.
 
 ** USAGE
 This module is displayed on product details pages - with the help of a 'traffic light ' icon- 
