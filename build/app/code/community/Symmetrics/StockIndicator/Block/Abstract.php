@@ -303,7 +303,7 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
 
         $minQty = (int) $stockItem->getMinQty();
 
-        return (int) $stockItem->getQty() + $minQty < 0 ? $minQty : - $minQty;
+        return (int) $stockItem->getQty() + ($minQty < 0 ? $minQty : - $minQty);
     }
 
     /**
