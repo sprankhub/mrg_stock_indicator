@@ -37,7 +37,7 @@ class Symmetrics_StockIndicator_Helper_Stock extends Mage_Core_Helper_Abstract
 {
     /**
      * Get product state
-     * 
+     *
      * @param Mage_Catalog_Model_Product $product Product model
      *
      * @return array (color, title)
@@ -57,25 +57,31 @@ class Symmetrics_StockIndicator_Helper_Stock extends Mage_Core_Helper_Abstract
 
         $configQuantities = $configModel->getConfig();
         $productQuantity = $this->getProductStockQuantity($product);
-
         // Sets state and HTML title attribute of product
         // based on quantity matching against configuration values
         if (!$this->isProductInStock($product)) {
             $returnState['color'] = $state;
             $returnState['title'] = $this->__('Currently out of stock!');
-            
+
             return $returnState;
         }
-        
+
+        if (!$product->getStockItem()->getManageStock()) {
+            $returnState['color'] = Symmetrics_StockIndicator_Block_Abstract::GREEN_STATE;
+            $returnState['title'] = $this->__('In stock');
+
+            return $returnState;
+        }
+
         $returnState = array(
             'color' => Symmetrics_StockIndicator_Block_Abstract::RED_STATE,
             'title' => $this->__('Currently out of stock!')
         );
-        
+
         foreach ($states as $state) {
             if ($productQuantity >= $configQuantities[$state]) {
                 $returnState['color'] = $state;
-                
+
                 switch ($state) {
                     case $states[0]:
                         $returnState['title'] = $this->__('Currently out of stock!');
@@ -89,10 +95,10 @@ class Symmetrics_StockIndicator_Helper_Stock extends Mage_Core_Helper_Abstract
                 }
             }
         }
-        
+
         return $returnState;
     }
-    
+
     /**
      * Gets current stock of the product
      *
@@ -103,7 +109,7 @@ class Symmetrics_StockIndicator_Helper_Stock extends Mage_Core_Helper_Abstract
     public function getProductStockQuantity($product)
     {
         $stockItem = $product->getStockItem();
-        
+
         return (int) $stockItem->getQty() - $stockItem->getMinQty();
     }
 

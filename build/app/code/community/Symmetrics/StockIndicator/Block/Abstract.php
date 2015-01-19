@@ -118,7 +118,7 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
             // set RED state
             $this->setProductState(self::RED_STATE);
             $this->setStateTitle($this->__('Currently out of stock!'));
-        }        
+        }
 
         // Default css classes
         $this->addCssClass('stock-indicator ' . $this->getAlignment() . ' ' . $this->getProductState());
@@ -140,10 +140,13 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
         $configQuantities = $stockIndicatorConfig->getConfig();
         $productQuantity = $this->getProductStockQuantity();
 
+        $stateFlag = false;
+
         // Sets state and HTML title attribute of product
         // based on quantity matching against configuration values
         foreach ($states as $state) {
             if ($productQuantity >= $configQuantities[$state]) {
+                $stateFlag = true;
                 $this->setProductState($state);
                 switch ($state) {
                     case self::RED_STATE:
@@ -157,6 +160,11 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
                         break;
                 }
             }
+        }
+
+        if (!$stateFlag) {
+            $this->setProductState(self::RED_STATE);
+            $this->setStateTitle($this->__('Currently out of stock!'));
         }
     }
 
@@ -265,12 +273,11 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
      */
     public function isProductInStock($product = null)
     {
-        if (null !== $product) {
-            $stockItem = $product->getStockItem();
-        } else {
-            $stockItem =  $this->getProduct()->getStockItem();
+        if ($product === null) {
+            $product = $this->getProduct();
         }
-        $isInStock = $stockItem->getIsInStock();
+
+        $isInStock = $product ? $product->getStockItem()->getIsInStock() : false;
 
         return (boolean) $isInStock;
     }
@@ -287,10 +294,16 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
         if (null !== $product) {
             $stockItem = $product->getStockItem();
         } else {
-            $stockItem =  $this->getProduct()->getStockItem();
+            $stockItem = $this->getProduct()->getStockItem();
+            if (is_null($stockItem->getQty())) {
+                $stockItem = Mage::getModel('cataloginventory/stock_item')
+                    ->loadByProduct($this->getProduct());
+            }
         }
 
-        return (int) $stockItem->getQty() - $stockItem->getMinQty();
+        $minQty = (int) $stockItem->getMinQty();
+
+        return (int) $stockItem->getQty() + ($minQty < 0 ? $minQty : - $minQty);
     }
 
     /**
@@ -353,7 +366,7 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
     public function setOption($index, $value)
     {
         $this->_options[trim($index)] = trim($value);
-        
+
         return $this;
     }
 
@@ -368,7 +381,7 @@ abstract class Symmetrics_StockIndicator_Block_Abstract extends Mage_Catalog_Blo
     public function setAlignment($alignment)
     {
         $this->_alignment = strtolower(trim($alignment));
-        
+
         return $this;
     }
 }
