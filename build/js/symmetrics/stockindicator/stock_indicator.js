@@ -374,4 +374,4 @@ Symmetrics.Product.StockIndicatorConfig.prototype = {
         var quantity = this.configQuantities[state];
         return quantity;
     }
-}
+};
